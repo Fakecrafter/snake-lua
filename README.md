@@ -6,7 +6,7 @@ snake game written in lua with love2d
 
 ### Windows
 
-1. Download the release from github (the snake.zip file)
+1. Download the release(https://github.com/Fakecrafter/snake-lua/releases) from github (the snake.zip file)
 2. unzip it
 3. execute the snake.exe file inside it
 
