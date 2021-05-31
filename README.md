@@ -4,4 +4,6 @@ snake game written in lua with love2d
 
 ## Installation
 
-### Linux
+### Windows
+
+
