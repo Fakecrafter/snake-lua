@@ -1,22 +1,29 @@
 food = {
+    -- position of food
     x = 0,
     y = 0
     }
 
 
 snake_head = {
+    -- position of snake_head
     x = 0,
     y = 0,
-    dx = 1,
+    dx = 1, -- 1Dvector for x and y
     dy = 0
 }
 snake_tail = {
+    -- empty in the beginning because the snake is only the head
 }
 
 
 function foodNew()
+    -- pick random number for x and y
     food.x = love.math.random(0, rows-1) * durchmesser
     food.y = love.math.random(0, columns-1) * durchmesser
+
+
+
 
     -- check if food is in snake. If yes then calls itself (recursion)
         if snake_head.x == food.x and snake_head.y == food.y then
@@ -34,10 +41,11 @@ end
 
 
 function reset()
-    snake_head.x = 0
-    snake_head.y = 0
-    snake_head.dx = 1
-    snake_head.dy = 0
+    -- reset all the values
+    snake_head.x = love.math.random(0, 5) * 30
+    snake_head.y = love.math.random(0, 2) * 30
+    snake_head.dx = 0
+    snake_head.dy = 1
     foodNew()
     snake_tail = {
 
@@ -45,20 +53,23 @@ function reset()
 end
 
 function draw()
+    -- set the color to red
     love.graphics.setColor(0.933, 0.224, 0, 1)
+    -- draw food at x, y, width and height
     love.graphics.rectangle("fill", food.x, food.y, 25, 25 )
 
 
 
     -- set drawing color for snake to (57, 255, 20)
     love.graphics.setColor(0.224, 1, 0.078, 1)
-    -- draw snake
+    -- draw snake_head
     love.graphics.rectangle("fill", snake_head.x, snake_head.y, 25, 25 )
 
 
 
     -- iterate through tail of snake
     for key,value in pairs(snake_tail) do
+        -- draw each element
         love.graphics.rectangle("fill", value.x, value.y, 25, 25)
     end
 end
@@ -98,7 +109,7 @@ end
 
 function snake_update()
 
-    -- add dx and dy to x and y of snake
+    -- add dx and dy to x and y of snake so it moves
     snake_head.x = snake_head.x + snake_head.dx * durchmesser
     snake_head.y = snake_head.y + snake_head.dy * durchmesser
 
