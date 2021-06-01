@@ -11,3 +11,8 @@ snake game written in lua with love2d
 3. execute the snake.exe file inside it
 
 
+
+
+
+
+(Note: Sound effects are coming but I couldn't make them because my headphone-jack is broken)
