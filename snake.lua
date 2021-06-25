@@ -9,8 +9,8 @@ snake_head = {
     -- position of snake_head
     x = 0,
     y = 0,
-    dx = 1, -- 1Dvector for x and y
-    dy = 0
+    dx = 0, -- 1Dvector for x and y
+    dy = 1
 }
 snake_tail = {
     -- empty in the beginning because the snake is only the head
@@ -42,8 +42,8 @@ end
 
 function reset()
     -- reset all the values
-    snake_head.x = love.math.random(0, 5) * 30
-    snake_head.y = love.math.random(0, 2) * 30
+    snake_head.x = 300
+    snake_head.y = 300
     snake_head.dx = 0
     snake_head.dy = 1
     foodNew()
@@ -82,28 +82,54 @@ function check_keys()
     if love.keyboard.isDown("up") then
         -- check that the snake cant go backwards
         if not(snake_head.dy == 1) then
-            snake_head.dx = 0
-            snake_head.dy = -1
+            input_dx = 0
+            input_dy = -1
         end
     elseif love.keyboard.isDown("down") then
         -- check that the snake cant go backwards
         if not(snake_head.dy == -1) then
-            snake_head.dx = 0
-            snake_head.dy = 1
+            input_dx = 0
+            input_dy = 1
         end
     elseif love.keyboard.isDown("left") then
         -- check that the snake cant go backwards
         if not(snake_head.dx == 1) then
-            snake_head.dx = -1
-            snake_head.dy = 0
+            input_dx = -1
+            input_dy = 0
         end
     elseif love.keyboard.isDown("right") then
         -- check that the snake cant go backwards
         if not(snake_head.dx == -1) then
-            snake_head.dx = 1
-            snake_head.dy = 0
+            input_dx = 1
+            input_dy = 0
+        end
+    elseif love.keyboard.isDown("w") then
+        -- check that the snake cant go backwards
+        if not(snake_head.dy == 1) then
+            input_dx = 0
+            input_dy = -1
+        end
+    elseif love.keyboard.isDown("s") then
+        -- check that the snake cant go backwards
+        if not(snake_head.dy == -1) then
+            input_dx = 0
+            input_dy = 1
+        end
+    elseif love.keyboard.isDown("a") then
+        -- check that the snake cant go backwards
+        if not(snake_head.dx == 1) then
+            input_dx = -1
+            input_dy = 0
+        end
+    elseif love.keyboard.isDown("d") then
+        -- check that the snake cant go backwards
+        if not(snake_head.dx == -1) then
+            input_dx = 1
+            input_dy = 0
         end
     end
+    snake_head.dx = input_dx
+    snake_head.dy = input_dy
 end
 
 
