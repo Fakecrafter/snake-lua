@@ -1,6 +1,7 @@
 require 'snake'
 
 
+
 state = 0
 rows = 20
 columns = 20
